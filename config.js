@@ -9,7 +9,7 @@ const config = {
     process.env.DBUSER +
     ":" +
     process.env.DBPASSWORD +
-    "@bdd.f88n9.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+    "@bdd.f88n9.mongodb.net/siteWeb?retryWrites=true&w=majority",
 };
 
 module.exports = config;
