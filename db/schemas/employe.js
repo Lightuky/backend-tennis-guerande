@@ -3,17 +3,10 @@ const Schema = mongoose.Schema;
 
 let employeSchema = new Schema(
   {
-    nom: {
-      type: String,
+    informationsPerso: {
+      type: mongoose.ObjectId,
+      ref: "Joueur",
       required: true,
-    },
-    prenom: {
-      type: String,
-      required: true,
-    },
-    dateNaissance: {
-      type: String,
-      required: false,
     },
     poste: {
       type: String,
@@ -22,14 +15,6 @@ let employeSchema = new Schema(
     dateEmbauche: {
       type: Date,
       required: true,
-    },
-    telephone: {
-      type: String,
-      required: true,
-    },
-    email: {
-      type: String,
-      required: false,
     },
   },
   {

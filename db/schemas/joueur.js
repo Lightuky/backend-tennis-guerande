@@ -33,11 +33,26 @@ let joueurSchema = new Schema(
     },
     telephone: {
       type: String,
-      required: true,
+      required: false,
     },
     email: {
       type: String,
       required: false,
+    },
+    club: {
+      type: String,
+      required: true,
+    },
+    equipes: [
+      {
+        type: mongoose.ObjectId,
+        ref: "Equipe",
+        required: false,
+      },
+    ],
+    role: {
+      type: String,
+      required: true,
     },
   },
   {
