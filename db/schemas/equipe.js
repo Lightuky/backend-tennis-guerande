@@ -19,6 +19,10 @@ let equipeSchema = new Schema(
       type: String,
       required: true,
     },
+    annee: {
+      type: String,
+      required: true,
+    },
     joueurs: [
       {
         type: mongoose.ObjectId,

@@ -54,6 +54,10 @@ let joueurSchema = new Schema(
       type: String,
       required: true,
     },
+    afficher: {
+      type: Boolean,
+      required: true,
+    },
   },
   {
     timestamps: true,

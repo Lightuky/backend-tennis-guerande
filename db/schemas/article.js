@@ -20,6 +20,18 @@ let articleSchema = new Schema(
       ref: "Joueur",
       required: true,
     },
+    categorie: {
+      type: String,
+      required: true,
+    },
+    date: {
+      type: Date,
+      required: true,
+    },
+    afficher: {
+      type: Boolean,
+      required: true,
+    },
   },
   {
     timestamps: true,

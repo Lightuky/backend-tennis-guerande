@@ -16,6 +16,10 @@ let employeSchema = new Schema(
       type: Date,
       required: true,
     },
+    afficher: {
+      type: Boolean,
+      required: true,
+    },
   },
   {
     timestamps: true,
