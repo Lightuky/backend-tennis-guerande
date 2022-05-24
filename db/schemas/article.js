@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+
 const Schema = mongoose.Schema;
 
 let articleSchema = new Schema(
@@ -29,6 +30,14 @@ let articleSchema = new Schema(
       required: true,
     },
     afficher: {
+      type: Boolean,
+      required: true,
+    },
+    favori: {
+      type: Boolean,
+      required: true,
+    },
+    saisonnier: {
       type: Boolean,
       required: true,
     },
