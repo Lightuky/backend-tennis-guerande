@@ -1,4 +1,5 @@
 const express = require("express");
+const mongoose = require("mongoose");
 
 const photoController = require("../../controller/photo");
 
@@ -22,6 +23,18 @@ router.get("/ajouter", async (req, res) => {
     afficher: true,
   };
   await photoController.ajouterImage(test);
+  res.redirect("/photo");
+});
+
+router.get("/modifier/:id", async (req, res) => {
+  const test = {
+    _id: mongoose.Types.ObjectId(req.params.id),
+    nom: "Goku.jpg",
+    description: "Goku prêt au combat",
+    categorie: "Joueur",
+    afficher: false,
+  };
+  await photoController.modifierImage(test);
   res.redirect("/photo");
 });
 

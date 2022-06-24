@@ -7,11 +7,12 @@ async function obtenirImageParId(id) {
     const photo = await Photo.findById(mongoose.Types.ObjectId(id));
     console.log(photo);
     if (!photo) {
-      return console.log("Aucune image n'a cet ID!");
+      return console.log("Aucune image avec cet ID n'a été trouvée!");
     }
     return photo;
   } catch (error) {
-    return console.log(`C'est une erreur ${error}.`);
+    console.log(`C'est une erreur ${error}.`);
+    return error;
   }
 }
 
@@ -28,14 +29,35 @@ async function ajouterImage(element) {
       return console.log("Impossible d'ajouter cette image.");
     }
     await photo.save();
-    console.log("Image ajoutée.");
+    console.log("L'image a été ajoutée!");
     return photo;
   } catch (error) {
-    return `C'est une erreur ${error}.`;
+    console.log(`C'est une erreur ${error}.`);
+    return error;
+  }
+}
+
+async function modifierImage(element) {
+  try {
+    if (element._id) {
+      const photo = await Photo.findByIdAndUpdate(
+        mongoose.Types.ObjectId(element._id),
+        element
+      );
+      if (!photo) {
+        return console.log("Impossible de modifier cette image.");
+      }
+      console.log("L'image a été modifiée!");
+      return photo;
+    }
+  } catch (error) {
+    console.log(`C'est une erreur ${error}.`);
+    return error;
   }
 }
 
 module.exports = {
   obtenirImageParId,
   ajouterImage,
+  modifierImage,
 };
