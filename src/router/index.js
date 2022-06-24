@@ -1,6 +1,7 @@
 const express = require("express");
 
 const apiRouter = require("./sousRouter/api");
+const partenaireRouter = require("./sousRouter/partenaire");
 const photoRouter = require("./sousRouter/photo");
 
 let router = express.Router();
@@ -10,6 +11,8 @@ router.get("/", (req, res) => {
 });
 
 router.use("/api", apiRouter);
+
+router.use("/partenaire", partenaireRouter);
 
 router.use("/photo", photoRouter);
 
