@@ -1,6 +1,4 @@
 const express = require("express");
-const fs = require("fs");
-const fsPromises = require("fs/promises");
 
 let router = express.Router();
 
