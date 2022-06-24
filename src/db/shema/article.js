@@ -9,7 +9,8 @@ let articleSchema = new Schema(
       required: true,
     },
     image: {
-      type: String,
+      type: mongoose.ObjectId,
+      ref: "Image",
       required: false,
     },
     contenu: {

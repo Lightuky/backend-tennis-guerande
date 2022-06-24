@@ -12,6 +12,11 @@ let joueurSchema = new Schema(
       type: String,
       required: true,
     },
+    image: {
+      type: mongoose.ObjectId,
+      ref: "Image",
+      required: true,
+    },
     dateNaissance: {
       type: String,
       required: true,

@@ -3,7 +3,7 @@ const express = require("express");
 const router = require("./src/router/index");
 const config = require("./config");
 
-//const db = require("./db/connection");
+const db = require("./src/db/connection");
 
 const app = express();
 

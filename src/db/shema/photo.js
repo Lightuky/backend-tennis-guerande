@@ -2,15 +2,20 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-let partenaireSchema = new Schema(
+let photoSchema = new Schema(
   {
     nom: {
       type: String,
       required: true,
     },
-    logo: {
+    description: {
       type: String,
       required: true,
+    },
+    categorie: {
+      type: String,
+      required: true,
+      default: "Aucune",
     },
     afficher: {
       type: Boolean,
@@ -22,8 +27,8 @@ let partenaireSchema = new Schema(
   }
 );
 
-partenaireSchema.set("toJSON", { getters: true });
+photoSchema.set("toJSON", { getters: true });
 
-const Partenaire = mongoose.model("Partenaire", partenaireSchema);
+const Photo = mongoose.model("Photo", photoSchema);
 
-module.exports = Partenaire;
+module.exports = Photo;

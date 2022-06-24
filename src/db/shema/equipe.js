@@ -24,6 +24,11 @@ let equipeSchema = new Schema(
       type: String,
       required: true,
     },
+    image: {
+      type: mongoose.ObjectId,
+      ref: "Image",
+      required: true,
+    },
     joueurs: [
       {
         type: mongoose.ObjectId,
