@@ -11,7 +11,7 @@ router.get("/", (req, res) => {
 
 router.get("/recuperer/:id", async (req, res) => {
   const id = req.params.id;
-  const photo = await photoController.obtenirImageParId(id);
+  const photo = await photoController.obtenirPhotoParId(id);
   res.send(photo);
 });
 
@@ -22,7 +22,7 @@ router.get("/ajouter", async (req, res) => {
     categorie: "Aucune",
     afficher: true,
   };
-  await photoController.ajouterImage(test);
+  await photoController.ajouterPhoto(test);
   res.redirect("/photo");
 });
 
@@ -32,9 +32,16 @@ router.get("/modifier/:id", async (req, res) => {
     nom: "Goku.jpg",
     description: "Goku prêt au combat",
     categorie: "Joueur",
-    afficher: false,
+    afficher: true,
   };
-  await photoController.modifierImage(test);
+  await photoController.modifierPhoto(test);
+  res.redirect("/photo");
+});
+
+router.get("/masquer/:id", async (req, res) => {
+  let photo = await photoController.obtenirPhotoParId(req.params.id);
+  photo.afficher = !photo.afficher;
+  await photoController.modifierPhoto(photo);
   res.redirect("/photo");
 });
 

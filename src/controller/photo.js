@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const Photo = require("../db/schema/photo");
 
-async function obtenirImageParId(id) {
+async function obtenirPhotoParId(id) {
   try {
     const photo = await Photo.findById(mongoose.Types.ObjectId(id));
     console.log(photo);
@@ -16,7 +16,7 @@ async function obtenirImageParId(id) {
   }
 }
 
-async function ajouterImage(element) {
+async function ajouterPhoto(element) {
   try {
     const photo = new Photo({
       nom: element.nom,
@@ -37,7 +37,7 @@ async function ajouterImage(element) {
   }
 }
 
-async function modifierImage(element) {
+async function modifierPhoto(element) {
   try {
     if (element._id) {
       const photo = await Photo.findByIdAndUpdate(
@@ -57,7 +57,7 @@ async function modifierImage(element) {
 }
 
 module.exports = {
-  obtenirImageParId,
-  ajouterImage,
-  modifierImage,
+  obtenirPhotoParId,
+  ajouterPhoto,
+  modifierPhoto,
 };
