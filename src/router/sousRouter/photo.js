@@ -6,6 +6,8 @@ const photoController = require("../../controller/photo");
 let router = express.Router();
 
 router.get("/", (req, res) => {
+  //const id = mongoose.Types.ObjectId("62b63303dd5a0c35b2cb8aa5");
+  photoController.test();
   res.send("Photo");
 });
 
