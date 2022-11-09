@@ -1,12 +1,12 @@
 const express = require("express");
 const mongoose = require("mongoose");
 
-const photoController = require("../../controller/photo");
+const partenairesController = require("../../controller/Partenaires");
 
 let router = express.Router();
 
-router.get("/", (req, res) => {
-  res.send("Photo");
+router.get("/", async (req, res) => {
+  res.send("Partenaire");
 });
 
 module.exports = router;
