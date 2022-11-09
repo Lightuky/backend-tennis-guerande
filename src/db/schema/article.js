@@ -18,8 +18,7 @@ let articleSchema = new Schema(
       required: true,
     },
     auteur: {
-      type: mongoose.ObjectId,
-      ref: "Joueur",
+      type: String,
       required: true,
     },
     categorie: {
@@ -34,11 +33,15 @@ let articleSchema = new Schema(
       type: Boolean,
       required: true,
     },
+    possedeImage: {
+      type: Boolean,
+      required: true,
+    },
     favori: {
       type: Boolean,
       required: true,
     },
-    saisonnier: {
+    occasionel: {
       type: Boolean,
       required: true,
     },

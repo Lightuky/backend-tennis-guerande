@@ -1,0 +1,16 @@
+[{
+    "nom": "Accueil",
+    "url": "/"
+}, 
+{
+    "nom": "Le club",
+    "url": "/le-club"
+}, 
+{
+    "nom": "Entrainements",
+    "url": "/entrainements"
+}, 
+{
+    "nom": "Inscriptions",
+    "url": "/inscriptions"
+}]
