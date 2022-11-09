@@ -1,14 +1,14 @@
-const express = require("express");
+import express from "express";
 
-const router = require("./src/router/index");
-const config = require("./config");
+import router from "./src/router/index";
+import { PORT } from "./config";
 
-const db = require("./src/db/connection");
+import db from "./src/db/connection";
 
 const app = express();
 
 app.use("/", router);
 
-app.listen(config.PORT, () => {
-  console.log(`L'application tourne sur le port ${config.PORT}.`);
+app.listen(PORT, () => {
+  console.log(`L'application tourne sur le port ${PORT}.`);
 });

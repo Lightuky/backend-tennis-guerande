@@ -1,7 +1,7 @@
-const express = require("express");
-const mongoose = require("mongoose");
+import express from "express";
+import mongoose from "mongoose";
 
-const photoController = require("../../controller/photo");
+import photoController from "../../controller/photo";
 
 let router = express.Router();
 

@@ -1,3 +1,3 @@
-const Partenaire = require("../db/schema/partenaire");
+import Partenaire from "../db/schema/partenaire";
 
 module.exports = {};

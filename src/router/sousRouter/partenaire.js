@@ -1,7 +1,7 @@
-const express = require("express");
-const mongoose = require("mongoose");
+import express from "express";
+import mongoose from "mongoose";
 
-const partenaireController = require("../../controller/partenaire");
+import partenaireController from "../../controller/partenaire";
 
 let router = express.Router();
 

@@ -1,8 +1,8 @@
-const express = require("express");
+import express from "express";
 
-const apiRouter = require("./sousRouter/api");
-const partenaireRouter = require("./sousRouter/partenaire");
-const photoRouter = require("./sousRouter/photo");
+import apiRouter from "./sousRouter/api";
+import partenaireRouter from "./sousRouter/partenaire";
+import photoRouter from "./sousRouter/photo";
 
 let router = express.Router();
 

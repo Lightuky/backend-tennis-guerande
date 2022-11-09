@@ -1,6 +1,6 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
-const config = require("../../config");
+import config from "../../config";
 
 mongoose.connect(config.DBURL, {
   useNewUrlParser: true,

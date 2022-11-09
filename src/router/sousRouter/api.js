@@ -1,6 +1,6 @@
-const express = require("express");
+import express from "express";
 
-const navbar = require("../../api/navbar.json");
+import navbar from "../../api/navbar.json";
 
 let router = express.Router();
 
