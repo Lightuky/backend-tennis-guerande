@@ -44,6 +44,4 @@ let equipeSchema = new Schema(
 
 equipeSchema.set("toJSON", { getters: true });
 
-const Equipe = mongoose.model("Equipe", equipeSchema);
-
-module.exports = Equipe;
+export const Equipe = mongoose.model("Equipe", equipeSchema);

@@ -1,3 +1,3 @@
-import Partenaire from "../db/schema/partenaire";
+import { Partenaire } from "../db/schema/partenaire.js";
 
-module.exports = {};
+export const partenaireController = {};

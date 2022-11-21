@@ -1,3 +1,3 @@
-import Photo from "../db/schema/photo";
+import { Photo } from "../db/schema/photo.js";
 
-module.exports = {};
+export const photoController = {};

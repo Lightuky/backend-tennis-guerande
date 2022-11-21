@@ -29,6 +29,4 @@ let employeSchema = new Schema(
 
 employeSchema.set("toJSON", { getters: true });
 
-const Employe = mongoose.model("Employe", employeSchema);
-
-module.exports = Employe;
+export const Employe = mongoose.model("Employe", employeSchema);

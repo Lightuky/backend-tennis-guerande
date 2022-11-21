@@ -1,12 +1,10 @@
 import express from "express";
 import mongoose from "mongoose";
 
-import partenaireController from "../../controller/partenaire";
+import { partenaireController } from "../../controller/partenaire.js";
 
-let router = express.Router();
+export const partenaireRouter = express.Router()
 
-router.get("/", async (req, res) => {
+.get("/", async (req, res) => {
   res.send("Partenaire");
 });
-
-module.exports = router;

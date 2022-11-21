@@ -1,15 +1,13 @@
 import express from "express";
 
-import navbar from "../../api/navbar.json";
+import navbar from "../../api/navbar.json" assert { type: "json" };
 
-let router = express.Router();
+export const apiRouter = express.Router()
 
-router.get("/", (req, res) => {
+.get("/", (req, res) => {
   res.send("Api");
-});
+})
 
-router.get("/navbar", (req, res) => {
+.get("/navbar", (req, res) => {
   res.status(200).json(navbar);
 });
-
-module.exports = router;

@@ -72,6 +72,4 @@ let joueurSchema = new Schema(
 
 joueurSchema.set("toJSON", { getters: true });
 
-const Joueur = mongoose.model("Joueur", joueurSchema);
-
-module.exports = Joueur;
+export const Joueur = mongoose.model("Joueur", joueurSchema);

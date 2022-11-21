@@ -1,14 +1,14 @@
 import express from "express";
 
-import router from "./src/router/index";
-import { PORT } from "./config";
+import { router } from "./src/router/index.js";
+import { config } from "./config.js";
 
-import db from "./src/db/connection";
+import { connection as db } from "./src/db/connection.js";
 
 const app = express();
 
 app.use("/", router);
 
-app.listen(PORT, () => {
-  console.log(`L'application tourne sur le port ${PORT}.`);
+app.listen(config.PORT, () => {
+  console.log(`L'application tourne sur le port ${config.PORT}.`);
 });
