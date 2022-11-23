@@ -1,10 +1,7 @@
-const express = require("express");
-const mongoose = require("mongoose");
+import express from "express";
+import mongoose from "mongoose";
 
-const reseauxController = require("../../controller/Reseaux");
+import { ReseauxController } from "../../controller/Reseaux.js";
 
-let router = express.Router();
-
-router.get("/", reseauxController.getReseaux);
-
-module.exports = router;
+export const ReseauxRouter = express.Router()
+    .get("/", ReseauxController.getReseaux);

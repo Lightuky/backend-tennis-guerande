@@ -1,6 +1,6 @@
-const Employes = require("../db/schema/Employes");
+import { Employes } from "../db/schema/Employes.js"
 
-module.exports = {
+export const EmployesService = {
     getNombresEmployes: () => {
         return Employes.countDocuments();
     }

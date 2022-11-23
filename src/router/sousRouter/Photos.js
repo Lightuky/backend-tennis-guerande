@@ -1,12 +1,9 @@
-const express = require("express");
-const mongoose = require("mongoose");
+import express from "express";
 
-const photoController = require("../../controller/Photos");
+import { PhotosController } from "../../controller/Photos.js";
 
-let router = express.Router();
+export const PhotosRouter = express.Router()
 
-router.get("/", (req, res) => {
+.get("/", (req, res) => {
   res.send("Photo");
 });
-
-module.exports = router;

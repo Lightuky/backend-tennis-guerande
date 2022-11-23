@@ -1,9 +1,8 @@
-const Reseaux = require("../services/Reseaux");
+import { ReseauxService } from "../services/Reseaux.js"
 
-
-module.exports = {
+export const ReseauxController = {
     getReseaux:  async (req, res, next) => {
-        res.send({"nombre": await Reseaux.getReseaux()});
+        res.send(await ReseauxService.getReseaux());
 
     }
 };

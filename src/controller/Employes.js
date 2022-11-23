@@ -1,8 +1,7 @@
-const Employes = require("../services/Employes");
+import { EmployesService } from "../services/Employes.js"
 
-
-module.exports = {
+export const EmployesController = {
     getNombresEmployes: async (req, res, next) => {
-        res.send({"nombre": await Employes.getNombresEmployes()});
+        res.send({"nombre": await EmployesService.getNombresEmployes()});
     }
 };

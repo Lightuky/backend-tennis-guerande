@@ -1,8 +1,7 @@
-const Terrains = require("../services/Terrains");
+import { TerrainsService } from "../services/Terrains.js"
 
-
-module.exports = {
+export const TerrainsController = {
     getNombreTerrains: async (req, res, next) => {
-        res.send({nombre: await Terrains.getNombreTerrains()});
+        res.send({nombre: await TerrainsService.getNombreTerrains()});
     }
 };

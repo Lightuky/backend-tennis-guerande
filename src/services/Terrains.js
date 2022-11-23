@@ -1,6 +1,6 @@
-const Terrains = require("../db/schema/Terrains");
+import { Terrains } from "../db/schema/Terrains.js"
 
-module.exports = {
+export const TerrainsService = {
     getNombreTerrains: async () => {
         return Terrains.countDocuments();
     }

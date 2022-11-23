@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const Schema = mongoose.Schema;
 
@@ -31,10 +31,6 @@ let joueurSchema = new Schema(
     },
     licenceNumero: {
       type: Number,
-      required: true,
-    },
-    licenceNumero: {
-      type: String,
       required: true,
     },
     telephone: {
@@ -72,6 +68,4 @@ let joueurSchema = new Schema(
 
 joueurSchema.set("toJSON", { getters: true });
 
-const Joueur = mongoose.model("Joueur", joueurSchema);
-
-module.exports = Joueur;
+export const Joueur = mongoose.model("Joueur", joueurSchema);

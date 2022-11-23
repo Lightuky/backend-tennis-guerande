@@ -1,8 +1,7 @@
-const Articles = require("../services/Articles");
+import { ArticlesService } from "../services/Articles.js"
 
-
-module.exports = {
+export const ArticlesController = {
     getArticlesLimiter: async (req, res, next) => {
-        res.send((await Articles.getArticles()).splice(0, 3));
+        res.send((await ArticlesService.getArticles()).splice(0, 3));
     }
 };

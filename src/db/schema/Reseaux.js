@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const Schema = mongoose.Schema;
 
@@ -29,6 +29,4 @@ let reseauxSchema = new Schema(
 
 reseauxSchema.set("toJSON", { getters: true });
 
-const Reseaux = mongoose.model("Reseau", reseauxSchema);
-
-module.exports = Reseaux;
+export const Reseaux = mongoose.model("Reseau", reseauxSchema);

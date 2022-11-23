@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const Schema = mongoose.Schema;
 
@@ -22,6 +22,4 @@ let terrainsSchema = new Schema(
 
 terrainsSchema.set("toJSON", { getters: true });
 
-const Terrains = mongoose.model("Terrains", terrainsSchema);
-
-module.exports = Terrains;
+export const Terrains = mongoose.model("Terrains", terrainsSchema);

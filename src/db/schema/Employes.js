@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const Schema = mongoose.Schema;
 
@@ -28,6 +28,4 @@ let employesSchema = new Schema(
 
 employesSchema.set("toJSON", { getters: true });
 
-const Employes = mongoose.model("Employes", employesSchema);
-
-module.exports = Employes;
+export const Employes = mongoose.model("Employes", employesSchema);

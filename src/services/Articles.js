@@ -1,6 +1,6 @@
-const Articles = require("../db/schema/Articles");
+import { Articles } from "../db/schema/Articles.js";
 
-module.exports = {
+export const ArticlesService = {
     getArticles: () => {
         return Articles.find();
     }

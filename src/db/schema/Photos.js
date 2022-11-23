@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const Schema = mongoose.Schema;
 
@@ -104,6 +104,5 @@ photosSchema.static({
 
 photosSchema.set("toJSON", { getters: true });
 
-const Photos = mongoose.model("Photos", photosSchema);
+export const Photos = mongoose.model("Photos", photosSchema);
 
-module.exports = Photos;

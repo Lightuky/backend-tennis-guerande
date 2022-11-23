@@ -1,10 +1,7 @@
-const express = require("express");
-const mongoose = require("mongoose");
+import express from "express";
+import mongoose from "mongoose";
 
-const employesController = require("../../controller/Employes");
+import { EmployesController } from "../../controller/Employes.js";
 
-let router = express.Router();
-
-router.get("/nombre", employesController.getNombresEmployes);
-
-module.exports = router;
+export const EmployesRouter = express.Router()
+    .get("/nombre", EmployesController.getNombresEmployes);

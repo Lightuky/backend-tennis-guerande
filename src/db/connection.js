@@ -1,6 +1,6 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
-const config = require("../../config");
+import { config } from "../../config.js";
 
 mongoose.connect(config.DBURL, {
   useNewUrlParser: true,
@@ -17,4 +17,4 @@ connection.once("open", () => {
   console.log("Connexion à la base réussie.");
 });
 
-module.exports = connection;
+export { connection };

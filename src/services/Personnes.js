@@ -1,6 +1,6 @@
-const Personnes = require("../db/schema/Personnes");
+import { Personnes } from "../db/schema/Personnes.js"
 
-module.exports = {
+export const PersonnesService = {
     getNombresAdherents: () => {
         return Personnes.countDocuments({"adherent": true});
     }

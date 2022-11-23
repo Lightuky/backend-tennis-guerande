@@ -1,10 +1,8 @@
-const express = require("express");
-const mongoose = require("mongoose");
+import express from "express";
+import mongoose from "mongoose";
 
-const personnesController = require("../../controller/Personnes");
+import { PersonnesController } from "../../controller/Personnes.js"
 
-let router = express.Router();
 
-router.get("/adherents/nombre", personnesController.getNombresAdherents);
-
-module.exports = router;
+export const PersonnesRouter = express.Router()
+    .get("/adherents/nombre", PersonnesController.getNombresAdherents);

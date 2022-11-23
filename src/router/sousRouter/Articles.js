@@ -1,10 +1,8 @@
-const express = require("express");
-const mongoose = require("mongoose");
+import express from "express";
+import mongoose from "mongoose";
 
-const articlesController = require("../../controller/Articles");
+import { ArticlesController } from "../../controller/Articles.js"
 
-let router = express.Router();
+export const ArticlesRouter = express.Router()
+    .get("/limit", ArticlesController.getArticlesLimiter);
 
-router.get("/limit", articlesController.getArticlesLimiter);
-
-module.exports = router;

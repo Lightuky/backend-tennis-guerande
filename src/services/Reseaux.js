@@ -1,7 +1,7 @@
-const Reseaux = require("../db/schema/Reseaux");
+import { Reseaux } from "../db/schema/Reseaux.js"
 
-module.exports = {
+export const ReseauxService = {
     getReseaux: () => {
-        return Reseaux.find();
+        return Reseaux.find({afficher: true});
     }
 };

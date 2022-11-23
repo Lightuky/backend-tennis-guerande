@@ -1,30 +1,28 @@
-const express = require("express");
+import express from "express";
 
-const navbar = require("../../api/navbar.json");
-const photoRouter = require("./Photos");
-const partenaireRouter = require("./Partenaires");
-const personnesRouter = require("./Personnes");
-const employesRouter = require("./Employes");
-const terrainRouter = require("./Terrains");
-const articleRouter = require("./Articles");
-const reseauxRouteur = require("./Reseaux");
+import navbar from "../../api/navbar.json" assert { type: "json" }
+import { PhotosRouter } from "./Photos.js";
+import { PartenairesRouter } from "./Partenaires.js";
+import { PersonnesRouter } from "./Personnes.js";
+import { EmployesRouter } from "./Employes.js";
+import { TerrainRouter } from "./Terrains.js";
+import { ArticlesRouter } from "./Articles.js";
+import { ReseauxRouter } from "./Reseaux.js";
 
-let router = express.Router();
+export const apiRouter = express.Router()
 
-router.get("/", (req, res) => {
+.get("/", (req, res) => {
   res.send("Api");
-});
+})
 
-router.get("/navbar", (req, res) => {
+.get("/navbar", (req, res) => {
   res.status(200).json(navbar);
-});
+})
 
-router.use("/photos", photoRouter);
-router.use("/partenaire", partenaireRouter);
-router.use("/personnes", personnesRouter);
-router.use("/employes", employesRouter);
-router.use("/terrains", terrainRouter);
-router.use("/articles", articleRouter);
-router.use("/reseaux", reseauxRouteur);
-
-module.exports = router;
+.use("/photos", PhotosRouter)
+.use("/partenaire", PartenairesRouter)
+.use("/personnes", PersonnesRouter)
+.use("/employes", EmployesRouter)
+.use("/terrains", TerrainRouter)
+.use("/articles", ArticlesRouter)
+.use("/reseaux", ReseauxRouter);

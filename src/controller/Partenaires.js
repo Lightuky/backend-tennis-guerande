@@ -1,3 +1,3 @@
-const Partenaires = require("../db/schema/Partenaire");
+import { Partenaires } from "../db/schema/partenaire.js";
 
-module.exports = {};
+export const PartenairesController = {};

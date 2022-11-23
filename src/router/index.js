@@ -1,13 +1,11 @@
-const express = require("express");
+import express from "express";
 
-const apiRouter = require("./sousRouter/api");
+import { apiRouter } from "./sousRouter/api.js";
 
-let router = express.Router();
+export const router = express.Router()
 
-router.get("/", (req, res) => {
+.get("/", (req, res) => {
   res.send("Tennis Club de Guérande");
-});
+})
 
-router.use("/api", apiRouter);
-
-module.exports = router;
+.use("/api", apiRouter);

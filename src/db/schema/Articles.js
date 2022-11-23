@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const Schema = mongoose.Schema;
 
@@ -50,6 +50,5 @@ let articlesSchema = new Schema(
 
 articlesSchema.set("toJSON", { getters: true });
 
-const Articles = mongoose.model("Articles", articlesSchema);
+export const Articles = mongoose.model("Articles", articlesSchema);
 
-module.exports = Articles;

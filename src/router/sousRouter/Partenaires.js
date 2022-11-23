@@ -1,12 +1,10 @@
-const express = require("express");
-const mongoose = require("mongoose");
+import express from "express";
+import mongoose from "mongoose";
 
-const partenairesController = require("../../controller/Partenaires");
+import { PartenairesController } from "../../controller/Partenaires.js";
 
-let router = express.Router();
+export const PartenairesRouter = express.Router()
 
-router.get("/", async (req, res) => {
+.get("/", async (req, res) => {
   res.send("Partenaire");
 });
-
-module.exports = router;

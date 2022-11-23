@@ -1,3 +1,3 @@
-const Photos = require("../db/schema/Photos");
+import { Photos } from "../db/schema/Photos.js";
 
-module.exports = {};
+export const PhotosController = {};

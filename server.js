@@ -1,9 +1,9 @@
-const express = require("express");
+import express from "express";
 
-const router = require("./src/router/index");
-const config = require("./config");
+import { router } from "./src/router/index.js";
+import { config } from "./config.js";
 
-const db = require("./src/db/connection");
+import { connection as db } from "./src/db/connection.js";
 
 const app = express();
 
