@@ -29,6 +29,6 @@ let reseauxSchema = new Schema(
 
 reseauxSchema.set("toJSON", { getters: true });
 
-const Reseaux = mongoose.model("Reseaux", reseauxSchema);
+const Reseaux = mongoose.model("Reseau", reseauxSchema);
 
 module.exports = Reseaux;

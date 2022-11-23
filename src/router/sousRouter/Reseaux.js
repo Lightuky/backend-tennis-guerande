@@ -5,8 +5,6 @@ const reseauxController = require("../../controller/Reseaux");
 
 let router = express.Router();
 
-router.get("/", async (req, res) => {
-    res.send(reseauxController.getReseaux());
-});
+router.get("/", reseauxController.getReseaux);
 
 module.exports = router;

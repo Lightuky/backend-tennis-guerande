@@ -5,8 +5,6 @@ const articlesController = require("../../controller/Articles");
 
 let router = express.Router();
 
-router.get("/limit", async (req, res) => {
-    res.send(articlesController.getArticlesLimiter());
-});
+router.get("/limit", articlesController.getArticlesLimiter);
 
 module.exports = router;

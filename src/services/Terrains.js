@@ -1,7 +1,7 @@
 const Terrains = require("../db/schema/Terrains");
 
 module.exports = {
-    getNombreTerrains: () => {
+    getNombreTerrains: async () => {
         return Terrains.countDocuments();
     }
 };

@@ -5,8 +5,6 @@ const employesController = require("../../controller/Employes");
 
 let router = express.Router();
 
-router.get("/nombre", async (req, res) => {
-    res.send(employesController.getNombresEmployes());
-});
+router.get("/nombre", employesController.getNombresEmployes);
 
 module.exports = router;
