@@ -103,6 +103,4 @@ partenaireSchema.static({
 
 partenaireSchema.set("toJSON", { getters: true });
 
-const Partenaire = mongoose.model("Partenaire", partenaireSchema);
-
-module.exports = Partenaire;
+export const Partenaire = mongoose.model("Partenaire", partenaireSchema);

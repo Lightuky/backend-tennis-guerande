@@ -51,6 +51,4 @@ let tourneeSchema = new Schema(
 
 tourneeSchema.set("toJSON", { getters: true });
 
-const Tournee = mongoose.model("Tournee", tourneeSchema);
-
-module.exports = Tournee;
+export const Tournee = mongoose.model("Tournee", tourneeSchema);

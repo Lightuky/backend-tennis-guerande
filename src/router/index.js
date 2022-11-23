@@ -1,19 +1,17 @@
 import express from "express";
 
-import apiRouter from "./sousRouter/api";
-import partenaireRouter from "./sousRouter/partenaire";
-import photoRouter from "./sousRouter/photo";
+import { apiRouter } from "./sousRouter/api.js";
+import { partenaireRouter } from "./sousRouter/partenaire.js";
+import { photoRouter } from "./sousRouter/photo.js";
 
-let router = express.Router();
+export const router = express.Router()
 
-router.get("/", (req, res) => {
+.get("/", (req, res) => {
   res.send("Tennis Club de Guérande");
-});
+})
 
-router.use("/api", apiRouter);
+.use("/api", apiRouter)
 
-router.use("/partenaire", partenaireRouter);
+.use("/partenaire", partenaireRouter)
 
-router.use("/photo", photoRouter);
-
-module.exports = router;
+.use("/photo", photoRouter);

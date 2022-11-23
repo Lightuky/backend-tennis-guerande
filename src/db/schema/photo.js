@@ -104,6 +104,4 @@ photoSchema.static({
 
 photoSchema.set("toJSON", { getters: true });
 
-const Photo = mongoose.model("Photo", photoSchema);
-
-module.exports = Photo;
+export const Photo = mongoose.model("Photo", photoSchema);

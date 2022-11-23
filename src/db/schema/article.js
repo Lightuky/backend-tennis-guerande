@@ -53,6 +53,4 @@ let articleSchema = new Schema(
 
 articleSchema.set("toJSON", { getters: true });
 
-const Article = mongoose.model("Article", articleSchema);
-
-module.exports = Article;
+export const Article = mongoose.model("Article", articleSchema);
