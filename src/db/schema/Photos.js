@@ -12,6 +12,10 @@ let photosSchema = new Schema(
       type: String,
       required: true,
     },
+    base64: {
+      type: String,
+      required: true
+    },
     categorie: {
       type: String,
       required: true,
