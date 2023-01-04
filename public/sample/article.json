@@ -28,7 +28,7 @@
         "possedeImage": false,
         "favoris": false,
         "saisonnier": false
-    }
+    },
     {
         "titre": "mon titre 2",
         "image": null,
@@ -43,7 +43,7 @@
         "possedeImage": false,
         "favoris": false,
         "saisonnier": false
-    }
+    },
     {
         "titre": "mon titre 3",
         "image": null,
@@ -58,7 +58,7 @@
         "possedeImage": false,
         "favoris": false,
         "saisonnier": false
-    }
+    },
     {
         "titre": "mon titre 4",
         "image": null,
@@ -73,7 +73,7 @@
         "possedeImage": false,
         "favoris": false,
         "saisonnier": false
-    }
+    },
     {
         "titre": "mon titre 5",
         "image": null,
@@ -88,7 +88,7 @@
         "possedeImage": false,
         "favoris": false,
         "saisonnier": false
-    }
+    },
     {
         "titre": "mon titre 6",
         "image": null,
@@ -104,7 +104,3 @@
         "favoris": false,
         "saisonnier": false
     }
-
-adminguerandais
-mercivic
-
