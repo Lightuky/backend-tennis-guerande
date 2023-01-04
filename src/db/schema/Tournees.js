@@ -2,17 +2,17 @@ import mongoose from "mongoose";
 
 const Schema = mongoose.Schema;
 
-let tourneeSchema = new Schema(
+let tourneesSchema = new Schema(
   {
     coach: [
       {
         type: mongoose.ObjectId,
-        ref: "Employe",
+        ref: "Employes",
         required: true,
       },
     ],
     prix: {
-      type: String,
+      type: Number,
       required: true,
     },
     date: {
@@ -49,6 +49,6 @@ let tourneeSchema = new Schema(
   }
 );
 
-tourneeSchema.set("toJSON", { getters: true });
+tourneesSchema.set("toJSON", { getters: true });
 
-export const Tournee = mongoose.model("Tournee", tourneeSchema);
+export const Tournees = mongoose.model("Tournees", tourneesSchema);

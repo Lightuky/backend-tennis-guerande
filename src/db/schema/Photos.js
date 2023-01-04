@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const Schema = mongoose.Schema;
 
-let photoSchema = new Schema(
+let photosSchema = new Schema(
   {
     nom: {
       type: String,
@@ -27,16 +27,16 @@ let photoSchema = new Schema(
   }
 );
 
-photoSchema.method({
+photosSchema.method({
   masquer: function () {
     this.afficher = !this.afficher;
   },
 });
 
-photoSchema.static({
+photosSchema.static({
   ajouterPhoto: async function (nouvelle) {
     try {
-      const photo = new Photo({
+      const photo = new Photos({
         nom: nouvelle.nom,
         description: nouvelle.description,
         categorie: nouvelle.categorie,
@@ -102,6 +102,7 @@ photoSchema.static({
   },
 });
 
-photoSchema.set("toJSON", { getters: true });
+photosSchema.set("toJSON", { getters: true });
 
-export const Photo = mongoose.model("Photo", photoSchema);
+export const Photos = mongoose.model("Photos", photosSchema);
+
