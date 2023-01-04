@@ -32,5 +32,31 @@ let AlbumsSchema = new Schema(
 
 AlbumsSchema.set("toJSON", { getters: true });
 
+AlbumsSchema.statics = {
+    getAlbum: async () => {
+      return await Albums.find().sort({"createdAt": -1}).exec()
+        .then((album) => {
+          if (!album) return undefined
+          return album;
+        })
+        .catch((erreur) => {
+          console.log(erreur);
+          return undefined;
+        });
+    },
+
+    getAlbumById: async (id) => {
+        return await Albums.findById(id).lean().exec()
+        .then((album) => {
+            if (!album) return undefined
+            return album;
+        })
+        .catch((erreur) => {
+            console.log(erreur);
+            return undefined;
+        });
+    },
+}
+
 export const Albums = mongoose.model("Albums", AlbumsSchema);
 
