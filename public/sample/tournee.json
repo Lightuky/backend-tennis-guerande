@@ -1,0 +1,30 @@
+{
+    "coach": {   
+        "nom": "Affilé",
+        "prenom": "Victor"
+    },
+    "prix": 20,
+    "date": {
+        "debut": ,
+        "fin": ,
+    },
+    "programme": "",
+    "organisation": "",
+    "autre": "",
+    "afficher": true
+}
+{
+    "coach": {   
+        "nom": "Affilé",
+        "prenom": "Victor"
+    },
+    "prix": 20,
+    "date": {
+        "debut": ,
+        "fin": ,
+    },
+    "programme": "",
+    "organisation": "",
+    "autre": "",
+    "afficher": false
+}
