@@ -2,9 +2,9 @@ import { Albums } from "../db/schema/Albums.js";
 
 export const AlbumsService = {
     getAlbums: () => {
-        return Albums.getAlbum();
+        return Albums.getAlbums();
     },
     getAlbumById: (id) => {
-        return Albums.findById(id).lean();
+        return Albums.getAlbumById(id);
     }
 };

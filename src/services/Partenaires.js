@@ -1,4 +1,4 @@
-import { Partenaires } from "../db/schema/partenaire.js";
+import { Partenaires } from "../db/schema/Partenaires.js";
 
 export const PartenairesService = {
     getPartenaires: async () => {

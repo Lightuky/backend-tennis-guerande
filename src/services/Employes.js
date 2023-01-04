@@ -2,10 +2,10 @@ import { Employes } from "../db/schema/Employes.js"
 
 export const EmployesService = {
     getNombresEmployes: () => {
-        return Employes.countDocuments();
+        return Employes.getNombresEmployes();
     },
 
     getSecretaire: () => {
-        return Employes.find({poste: "secretaire"});
+        return Employes.getSecretaire();
     }
 };
