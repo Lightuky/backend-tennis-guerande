@@ -29,4 +29,19 @@ let reseauxSchema = new Schema(
 
 reseauxSchema.set("toJSON", { getters: true });
 
+reseauxSchema.statics = {
+    getReseaux: async () => {
+      return await Reseaux.find({afficher: true}).exec()
+        .then((reseaux) => {
+          if (!reseaux) return undefined
+          return reseaux;
+        })
+        .catch((erreur) => {
+          console.log(erreur);
+          return undefined;
+        });
+    },
+}
+
+
 export const Reseaux = mongoose.model("Reseau", reseauxSchema);

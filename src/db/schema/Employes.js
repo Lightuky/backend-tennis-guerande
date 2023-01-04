@@ -28,4 +28,30 @@ let employesSchema = new Schema(
 
 employesSchema.set("toJSON", { getters: true });
 
+employesSchema.statics = {
+    getNombresEmployes: async () => {
+      return await Employes.countDocuments().exec()
+        .then((nb) => {
+          if (!nb) return undefined
+          return nb;
+        })
+        .catch((erreur) => {
+          console.log(erreur);
+          return undefined;
+        });
+    },
+
+    getSecretaire: async () => {
+        return await Employes.find({poste: "secretaire"}).exec()
+        .then((secretaires) => {
+            if (!secretaires) return undefined
+            return secretaires;
+        })
+        .catch((erreur) => {
+            console.log(erreur);
+            return undefined;
+        });
+    },
+}
+
 export const Employes = mongoose.model("Employes", employesSchema);

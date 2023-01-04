@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const Schema = mongoose.Schema;
 
-let perssonnesSchema = new Schema(
+let personnesSchema = new Schema(
     {
         image: {
             type: mongoose.ObjectId,
@@ -60,6 +60,21 @@ let perssonnesSchema = new Schema(
     }
 );
 
-perssonnesSchema.set("toJSON", { getters: true });
+personnesSchema.set("toJSON", { getters: true });
 
-export const Personnes = mongoose.model("Personnes", perssonnesSchema);
+personnesSchema.statics = {
+    getNombresAdherents: async () => {
+      return await Personnes.countDocuments({"adherent": true}).exec()
+        .then((adherents) => {
+          if (!adherents) return undefined
+          return adherents;
+        })
+        .catch((erreur) => {
+          console.log(erreur);
+          return undefined;
+        });
+    },
+}
+
+
+export const Personnes = mongoose.model("Personnes", personnesSchema);

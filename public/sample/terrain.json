@@ -1,0 +1,15 @@
+{
+    "reserverPar": {
+        "nom": "Affilé",
+        "prenom": "Victor"
+    },
+    "matricule": "A1"
+}
+{
+    "reserverPar": {},
+    "matricule": "A2"
+}
+{
+    "reserverPar": {},
+    "matricule": "B1"
+}

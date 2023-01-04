@@ -1,8 +1,8 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-let partenaireSchema = new Schema(
+let partenairesSchema = new Schema(
   {
     nom: {
       type: String,
@@ -10,7 +10,7 @@ let partenaireSchema = new Schema(
     },
     logo: {
       type: mongoose.ObjectId,
-      ref: "Image",
+      ref: "Photos",
       required: true,
     },
     afficher: {
@@ -23,13 +23,13 @@ let partenaireSchema = new Schema(
   }
 );
 
-partenaireSchema.method({
+partenairesSchema.method({
   masquer: function () {
     this.afficher = !this.afficher;
   },
 });
 
-partenaireSchema.static({
+partenairesSchema.static({
   ajouterPartenaire: async function (nouveau) {
     try {
       const partenaire = new Partenaire({
@@ -93,7 +93,7 @@ partenaireSchema.static({
       console.log(
         partenaire.afficher
           ? "Le partenaire est affichable"
-          : "Le partenaire photo n'est plus affichable"
+          : "Le partenaire n'est plus affichable"
       );
     } catch (error) {
       console.log(`C'est une erreur : ${error}.`);
@@ -103,4 +103,6 @@ partenaireSchema.static({
 
 partenaireSchema.set("toJSON", { getters: true });
 
-export const Partenaires = mongoose.model("Partenaire", partenaireSchema);
+const Partenaires = mongoose.model("Partenaires", partenairesSchema);
+
+module.exports = Partenaires;

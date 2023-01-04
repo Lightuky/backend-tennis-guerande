@@ -22,4 +22,18 @@ let terrainsSchema = new Schema(
 
 terrainsSchema.set("toJSON", { getters: true });
 
+terrainsSchema.statics = {
+    getNombreTerrains: async () => {
+      return await Terrains.countDocuments().exec()
+        .then((terrains) => {
+          if (!terrains) return undefined
+          return terrains;
+        })
+        .catch((erreur) => {
+          console.log(erreur);
+          return undefined;
+        });
+    },
+}
+
 export const Terrains = mongoose.model("Terrains", terrainsSchema);

@@ -1,0 +1,62 @@
+{
+    "personne": {   
+        "nom": "Affilé",
+        "prenom": "Victor"
+    },
+    "poste": "prof",
+    "dateEmbauche":,
+    "afficher": false
+}
+{
+    "personne": {   
+        "nom": "Jacob",
+        "prenom": "Aymeric"
+    },
+    "poste": "prof",
+    "dateEmbauche":,
+    "afficher": false
+}
+{
+    "personne": {   
+        "nom": "Fuzeau",
+        "prenom": "Maxime"
+    },
+    "poste": "prof",
+    "dateEmbauche":,
+    "afficher": false
+}
+
+
+horaire douverture
+par jour
+demijournée
+fermeture
+periode
+
+let horaireSchema = new Schema(
+  {
+    jour: {
+      type: String,
+      required: true,
+    },
+    demi-jour: {
+      type: String,
+      required: true,
+    },
+    ouverture: {
+      type: String,
+      required: false,
+    },
+    fermture: {
+      type: String,
+      required: true,
+    },
+    periode: {
+        type: String,
+        required: true,
+    }
+  },
+  {
+    timestamps: true,
+  }
+);

@@ -33,4 +33,18 @@ let horairesSchema = new Schema(
 
 horairesSchema.set("toJSON", { getters: true });
 
+horairesSchema.statics = {
+    getHoraireByPeriode: async (periode) => {
+      return await Horaires.find({"periode": periode}).exec()
+        .then((horaires) => {
+          if (!horaires) return undefined
+          return horaires;
+        })
+        .catch((erreur) => {
+          console.log(erreur);
+          return undefined;
+        });
+    },
+}
+
 export const Horaires = mongoose.model("Horaires", horairesSchema);

@@ -50,5 +50,32 @@ let articlesSchema = new Schema(
 
 articlesSchema.set("toJSON", { getters: true });
 
+
+articlesSchema.statics = {
+    getArticles: async () => {
+      return await Articles.find().sort({"createdAt": -1}).exec()
+        .then((articles) => {
+          if (!articles) return undefined
+          return articles;
+        })
+        .catch((erreur) => {
+          console.log(erreur);
+          return undefined;
+        });
+    },
+
+    getArticlesByCategorie: async (categorie) => {
+        return await Articles.find({"categorie": categorie}).sort({"createdAt": -1}).exec()
+        .then((articles) => {
+            if (!articles) return undefined
+            return articles;
+        })
+        .catch((erreur) => {
+            console.log(erreur);
+            return undefined;
+        });
+    },
+}
+
 export const Articles = mongoose.model("Articles", articlesSchema);
 
