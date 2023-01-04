@@ -4,4 +4,5 @@ import mongoose from "mongoose";
 import { EmployesController } from "../../controller/Employes.js";
 
 export const EmployesRouter = express.Router()
-    .get("/nombre", EmployesController.getNombresEmployes);
+    .get("/nombre", EmployesController.getNombresEmployes)
+    .get("/secretaire", EmployesController.getSecretaire)

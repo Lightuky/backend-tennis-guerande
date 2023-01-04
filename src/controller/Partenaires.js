@@ -1,3 +1,7 @@
-import { Partenaires } from "../db/schema/partenaire.js";
+import { PartenairesService } from "../services/Partenaires.js";
 
-export const PartenairesController = {};
+export const PartenairesController = {
+    getPartenaires: async (req, res, next) => {
+        res.send(await PartenairesService.getPartenaires())
+    }
+};

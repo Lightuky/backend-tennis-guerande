@@ -8,6 +8,8 @@ import { EmployesRouter } from "./Employes.js";
 import { TerrainRouter } from "./Terrains.js";
 import { ArticlesRouter } from "./Articles.js";
 import { ReseauxRouter } from "./Reseaux.js";
+import { AlbumsRouter } from "./Albums.js";
+import { HorairesRouter } from "./Horaires.js";
 
 export const apiRouter = express.Router()
 
@@ -25,4 +27,6 @@ export const apiRouter = express.Router()
 .use("/employes", EmployesRouter)
 .use("/terrains", TerrainRouter)
 .use("/articles", ArticlesRouter)
-.use("/reseaux", ReseauxRouter);
+.use("/reseaux", ReseauxRouter)
+.use("/albums", AlbumsRouter)
+.use("/horaires", HorairesRouter);
