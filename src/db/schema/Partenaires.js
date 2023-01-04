@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const Schema = mongoose.Schema;
 
@@ -101,8 +101,7 @@ partenairesSchema.static({
   },
 });
 
-partenaireSchema.set("toJSON", { getters: true });
+partenairesSchema.set("toJSON", { getters: true });
 
-const Partenaires = mongoose.model("Partenaires", partenairesSchema);
+export const Partenaires = mongoose.model("Partenaires", partenairesSchema);
 
-module.exports = Partenaires;

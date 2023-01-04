@@ -33,7 +33,7 @@ let AlbumsSchema = new Schema(
 AlbumsSchema.set("toJSON", { getters: true });
 
 AlbumsSchema.statics = {
-    getAlbum: async () => {
+    getAlbums: async () => {
       return await Albums.find().sort({"createdAt": -1}).exec()
         .then((album) => {
           if (!album) return undefined
