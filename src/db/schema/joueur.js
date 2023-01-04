@@ -33,10 +33,6 @@ let joueurSchema = new Schema(
       type: Number,
       required: true,
     },
-    licenceNumero: {
-      type: String,
-      required: true,
-    },
     telephone: {
       type: String,
       required: false,
