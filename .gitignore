@@ -102,3 +102,8 @@ dist
 
 # TernJS port file
 .tern-port
+.idea/backend-tennis-guerande.iml
+.idea/modules.xml
+.idea/php.xml
+.idea/vcs.xml
+.idea/workspace.xml
