@@ -2,7 +2,7 @@ import { ArticlesService } from "../services/Articles.js"
 
 export const ArticlesController = {
     getArticlesLimiter: async (req, res, next) => {
-        res.send((await ArticlesService.getArticles()).splice(0, 3));
+        res.send((await ArticlesService.getArticles(req.params.limite)));
     },
 
     getArticlesByCategorie: async (req, res, next) => {
@@ -10,6 +10,6 @@ export const ArticlesController = {
     },
 
     getArticlesLimiterByCategorie: async (req, res, next) => {
-        res.send((await ArticlesService.getArticlesByCategorie(req.params.categorie)).splice(0, 6));
+        res.send((await ArticlesService.getArticlesByCategorie(req.params.categorie, req.params.limite)));
     }
 };

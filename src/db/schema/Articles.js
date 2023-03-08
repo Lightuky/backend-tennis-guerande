@@ -50,30 +50,38 @@ let articlesSchema = new Schema(
 
 articlesSchema.set("toJSON", { getters: true });
 
+let findPicture = {$lookup: {from: "photos", localField: "image", foreignField: "_id", as: "image"}};
+let findAuthor = {$lookup: {from: "employes", localField: "auteur", foreignField: "_id", as: "auteur"}};
 
 articlesSchema.statics = {
-    getArticles: async () => {
-      return await Articles.find().sort({"createdAt": -1}).exec()
-        .then((articles) => {
-          if (!articles) return undefined
-          return articles;
-        })
-        .catch((erreur) => {
-          console.log(erreur);
-          return undefined;
-        });
+    getArticles: async (limite) => {
+        return await Articles.aggregate([findPicture, findAuthor])
+            .sort({"createdAt": -1})
+            .limit(limite === undefined ? 3 : parseInt(limite))
+            .exec()
+            .then((articles) => {
+                if (!articles) return undefined
+                return articles;
+            })
+            .catch((erreur) => {
+                console.log(erreur);
+                return undefined;
+            });
     },
 
-    getArticlesByCategorie: async (categorie) => {
-        return await Articles.find({"categorie": categorie}).sort({"createdAt": -1}).exec()
-        .then((articles) => {
-            if (!articles) return undefined
-            return articles;
-        })
-        .catch((erreur) => {
-            console.log(erreur);
-            return undefined;
-        });
+    getArticlesByCategorie: async (categorie, limite) => {
+        return await Articles.aggregate([{$match: {'categorie': categorie}}, findPicture, findAuthor])
+            .sort({"createdAt": -1})
+            .limit(limite === undefined ? 6 : parseInt(limite))
+            .exec()
+            .then((articles) => {
+                if (!articles) return undefined
+                return articles;
+            })
+            .catch((erreur) => {
+                console.log(erreur);
+                return undefined;
+            });
     },
 }
 
