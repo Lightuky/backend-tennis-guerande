@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import {ApiService} from "../../services/Api.js";
 
 const Schema = mongoose.Schema;
 
@@ -55,33 +56,24 @@ let findAuthor = {$lookup: {from: "employes", localField: "auteur", foreignField
 
 articlesSchema.statics = {
     getArticles: async (limite) => {
-        return await Articles.aggregate([findPicture, findAuthor])
-            .sort({"createdAt": -1})
-            .limit(limite === undefined ? 3 : parseInt(limite))
-            .exec()
-            .then((articles) => {
-                if (!articles) return undefined
-                return articles;
-            })
-            .catch((erreur) => {
-                console.log(erreur);
-                return undefined;
-            });
+        let pipeline = [
+            findPicture,
+            findAuthor,
+            {$sort: {createdAt: -1}},
+            {$limit: limite === undefined ? 3 : parseInt(limite)}
+        ];
+        return ApiService.get(Articles, pipeline);
     },
 
     getArticlesByCategorie: async (categorie, limite) => {
-        return await Articles.aggregate([{$match: {'categorie': categorie}}, findPicture, findAuthor])
-            .sort({"createdAt": -1})
-            .limit(limite === undefined ? 6 : parseInt(limite))
-            .exec()
-            .then((articles) => {
-                if (!articles) return undefined
-                return articles;
-            })
-            .catch((erreur) => {
-                console.log(erreur);
-                return undefined;
-            });
+        let pipeline = [
+            findPicture,
+            findAuthor,
+            {$match: {'categorie': categorie}},
+            {$sort: {createdAt: -1}},
+            {$limit: limite === undefined ? 6 : parseInt(limite)}
+        ];
+        return ApiService.get(Articles, pipeline)
     },
 }
 
