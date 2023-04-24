@@ -11,4 +11,17 @@ export const ApiService = {
                 return undefined;
             });
     },
+
+    count: async (resource, pipeline) => {
+        return await resource.countDocuments(pipeline)
+            .exec()
+            .then((data) => {
+                if (!data) return undefined
+                return data;
+            })
+            .catch((erreur) => {
+                console.log(erreur);
+                return undefined;
+            });
+    },
 };
