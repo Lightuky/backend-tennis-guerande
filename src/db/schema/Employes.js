@@ -43,12 +43,12 @@ employesSchema.statics = {
             findPicture,
             {$match: {'poste': poste}}
         ];
-        return ApiService.get(Employes, pipeline)
+        return ApiService.get(Employes, pipeline);
     },
 
     getDirigeants: async () => {
         let pipeline = [
-            {$match: {poste: {$in: ['secretaire', 'president(e)', 'comptable']}}}
+            {$match: {poste: {$in: ['secrétaire', 'président', 'présidente', 'comptable']}}}
         ];
         return ApiService.get(Employes, pipeline)
     },

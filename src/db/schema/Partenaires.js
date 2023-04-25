@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import {ApiService} from "../../services/Api.js";
 
 const Schema = mongoose.Schema;
 
@@ -29,6 +30,8 @@ partenairesSchema.method({
   },
 });
 
+let findPicture = {$lookup: {from: "photos", localField: "logo", foreignField: "_id", as: "logo"}};
+
 partenairesSchema.static({
   ajouterPartenaire: async function (nouveau) {
     try {
@@ -47,6 +50,7 @@ partenairesSchema.static({
       return error;
     }
   },
+
   obtenirPartenaireParId: async function (id) {
     try {
       const partenaire = await this.findById(id);
@@ -59,18 +63,15 @@ partenairesSchema.static({
       return error;
     }
   },
+
   obtenirTousLesPartenaires: async function () {
-    try {
-      const partenaires = await this.find({afficher: true});
-      if (!partenaires) {
-        console.log("Aucun partenaire n'a été trouvé!");
-      }
-      return partenaires;
-    } catch (error) {
-      console.log(`C'est une erreur : ${error}.`);
-      return error;
-    }
+    let pipeline = [
+      findPicture,
+      {$match: {'afficher': true}}
+    ];
+    return ApiService.get(Partenaires, pipeline);
   },
+
   modifierPartenaire: async function (element) {
     try {
       if (element._id) {
@@ -85,6 +86,7 @@ partenairesSchema.static({
       return error;
     }
   },
+
   masquerPartenaire: async function (id) {
     try {
       let partenaire = await this.obtenirPartenaireParId(id);

@@ -12,7 +12,7 @@ let photosSchema = new Schema(
       type: String,
       required: true,
     },
-    base64: {
+    base_64: {
       type: String,
       required: true
     },
