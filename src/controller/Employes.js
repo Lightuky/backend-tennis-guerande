@@ -1,11 +1,15 @@
-import { EmployesService } from "../services/Employes.js"
+import {EmployesService} from "../services/Employes.js"
 
 export const EmployesController = {
     getNombresEmployes: async (req, res, next) => {
         res.send({"nombre": await EmployesService.getNombresEmployes()});
     },
 
-    getSecretaire: async (req, res, next) => {
-        res.send(await EmployesService.getSecretaire())
+    getEmployesByPoste: async (req, res, next) => {
+        res.send((await EmployesService.getEmployesByPoste(req.params.poste)));
+    },
+
+    getDirigeants: async (req, res, next) => {
+        res.send((await EmployesService.getDirigeants()));
     }
 };

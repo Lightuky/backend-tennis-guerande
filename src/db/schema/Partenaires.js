@@ -61,7 +61,7 @@ partenairesSchema.static({
   },
   obtenirTousLesPartenaires: async function () {
     try {
-      const partenaires = await this.find({});
+      const partenaires = await this.find({afficher: true});
       if (!partenaires) {
         console.log("Aucun partenaire n'a été trouvé!");
       }

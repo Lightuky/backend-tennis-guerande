@@ -1,6 +1,5 @@
 import mongoose from "mongoose";
 import {ApiService} from "../../services/Api.js";
-import {Articles} from "./Articles.js";
 
 const Schema = mongoose.Schema;
 
@@ -64,31 +63,11 @@ let personnesSchema = new Schema(
 
 personnesSchema.set("toJSON", {getters: true});
 
-let findPicture = {$lookup: {from: "photos", localField: "image", foreignField: "_id", as: "image"}};
-
 personnesSchema.statics = {
     getNombresAdherents: async () => {
         let pipeline = {'adherent': true};
         return ApiService.count(Personnes, pipeline);
-    },
-
-    getAdherentsByPoste: async (poste) => {
-        let pipeline = [
-            findPicture,
-            {$lookup: {
-                from: 'employes', as: 'employe', let: { personId: '$_id' },
-                pipeline: [{
-                    $match: {
-                        $expr: {
-                            $and: [{$eq: ['$personne', '$$personId']}, {$eq: ['$poste', poste]}]
-                        }
-                    }
-                }]
-            }},
-            {$match: {employe: {$ne: []}}},
-        ];
-        return ApiService.get(Personnes, pipeline)
-    },
+    }
 }
 
 

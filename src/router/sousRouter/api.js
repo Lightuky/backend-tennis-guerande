@@ -22,7 +22,7 @@ export const apiRouter = express.Router()
 })
 
 .use("/photos", PhotosRouter)
-.use("/partenaire", PartenairesRouter)
+.use("/partenaires", PartenairesRouter)
 .use("/personnes", PersonnesRouter)
 .use("/employes", EmployesRouter)
 .use("/terrains", TerrainRouter)
