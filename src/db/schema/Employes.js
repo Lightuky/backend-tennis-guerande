@@ -48,9 +48,15 @@ employesSchema.statics = {
 
     getDirigeants: async () => {
         let pipeline = [
-            {$match: {poste: {$in: ['secrétaire', 'président', 'présidente', 'comptable']}}}
+            findPerson,
+            findPicture,
+            {$project: {poste: 1, 'profile.nom': 1, 'profile.prenom': 1, 'picture.base_64': 1}},
+            {$match: {poste: {$in: ['secrétaire', 'président', 'présidente', 'comptable', "conseil d'administration"]}}}
         ];
-        return ApiService.get(Employes, pipeline)
+        let results = await ApiService.get(Employes, pipeline);
+        const board_of_directors = results.filter(obj => obj.poste === "conseil d'administration");
+        const others = results.filter(obj => obj.poste !== "conseil d'administration");
+        return [others, board_of_directors];
     },
 }
 
