@@ -7,7 +7,7 @@ export const AlbumsService = {
     getAlbumsCategories: () => {
         return Albums.getAlbumsCategories();
     },
-    getAlbumById: (id) => {
-        return Albums.getAlbumById(id);
+    getAlbumDetails: (albumName) => {
+        return Albums.getAlbumDetails(albumName);
     }
 };

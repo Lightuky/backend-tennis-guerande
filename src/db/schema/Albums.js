@@ -34,6 +34,8 @@ let AlbumsSchema = new Schema(
 
 AlbumsSchema.set("toJSON", {getters: true});
 
+let findPicture = {$lookup: {from: "photos", localField: "images", foreignField: "_id", as: "images"}};
+
 AlbumsSchema.statics = {
     getAlbums: async (category) => {
         let pipeline = [];
@@ -51,16 +53,13 @@ AlbumsSchema.statics = {
         return ApiService.distinct(Albums, 'categorie');
     },
 
-    getAlbumById: async (id) => {
-        return await Albums.findById(id).lean().exec()
-            .then((album) => {
-                if (!album) return undefined
-                return album;
-            })
-            .catch((erreur) => {
-                console.log(erreur);
-                return undefined;
-            });
+    getAlbumDetails: async (albumName) => {
+        let pipeline = [
+            findPicture,
+            {$match: {'nom': albumName}},
+            {$addFields: {imagesCount: {$size: "$images"}}}
+        ];
+        return ApiService.get(Albums, pipeline);
     },
 }
 

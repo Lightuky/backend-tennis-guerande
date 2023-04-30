@@ -10,12 +10,7 @@ export const AlbumsController = {
         res.send(await AlbumsService.getAlbumsCategories());
     },
 
-    getPhotosByAlbum: async (req, res, next) => {
-        let images = (await AlbumsService.getAlbumById(req.params.albums)).images
-        let photos = []
-        for (let i in images) {
-            photos.push(await PhotosService.getPhotoById(images[i]));
-        }
-        res.send(photos);
+    getAlbumDetails: async (req, res, next) => {
+        res.send(await AlbumsService.getAlbumDetails(req.params.albumName));
     }
 };
