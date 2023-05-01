@@ -1,5 +1,4 @@
 import {AlbumsService} from "../services/Albums.js"
-import {PhotosService} from "../services/Photos.js"
 
 export const AlbumsController = {
     getAlbums: async (req, res, next) => {
