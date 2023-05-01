@@ -1,15 +1,15 @@
-import { ArticlesService } from "../services/Articles.js"
+import {ArticlesService} from "../services/Articles.js"
 
 export const ArticlesController = {
-    getArticlesLimiter: async (req, res, next) => {
-        res.send((await ArticlesService.getArticles(req.params.limite)));
+    getArticles: async (req, res, next) => {
+        res.send((await ArticlesService.getArticles(req.query.title, req.query.category, req.query.limit, req.query.age, req.query.seasonal)));
     },
 
-    getArticlesByCategorie: async (req, res, next) => {
-        res.send((await ArticlesService.getArticlesByCategorie(req.params.categorie)));
+    getArticlesCategories: async (req, res, next) => {
+        res.send((await ArticlesService.getArticlesCategories()));
     },
 
-    getArticlesLimiterByCategorie: async (req, res, next) => {
-        res.send((await ArticlesService.getArticlesByCategorie(req.params.categorie, req.params.limite)));
-    }
+    getArticleDetails: async (req, res, next) => {
+        res.send((await ArticlesService.getArticleDetails(req.params.articleTitle)));
+    },
 };

@@ -1,11 +1,15 @@
-import { Articles } from "../db/schema/Articles.js";
+import {Articles} from "../db/schema/Articles.js";
 
 export const ArticlesService = {
-    getArticles: (limite) => {
-        return Articles.getArticles(limite);
+    getArticles: (title, category, limit, age, seasonal) => {
+        return Articles.getArticles(title, category, limit, age, seasonal);
     },
 
-    getArticlesByCategorie: (categorie, limite) => {
-        return Articles.getArticlesByCategorie(categorie, limite);
+    getArticlesCategories: () => {
+        return Articles.getArticlesCategories();
+    },
+
+    getArticleDetails: (articleTitle) => {
+        return Articles.getArticleDetails(articleTitle);
     }
 };

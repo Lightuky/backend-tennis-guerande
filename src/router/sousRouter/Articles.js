@@ -1,8 +1,8 @@
 import express from "express";
 
-import { ArticlesController } from "../../controller/Articles.js"
+import {ArticlesController} from "../../controller/Articles.js"
 
 export const ArticlesRouter = express.Router()
-    .get("/limit/:limite?", ArticlesController.getArticlesLimiter)
-    .get("/:categorie", ArticlesController.getArticlesByCategorie)
-    .get("/:categorie/:limite?", ArticlesController.getArticlesLimiterByCategorie);
+    .get("/", ArticlesController.getArticles)
+    .get("/categories", ArticlesController.getArticlesCategories)
+    .get("/details/:articleTitle", ArticlesController.getArticleDetails);
