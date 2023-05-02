@@ -54,6 +54,7 @@ articlesSchema.set("toJSON", {getters: true});
 
 let findPicture = {$lookup: {from: "photos", localField: "image", foreignField: "_id", as: "image"}};
 let findAuthor = {$lookup: {from: "employes", localField: "auteur", foreignField: "_id", as: "auteur"}};
+let findPerson = {$lookup: {from: "personnes", localField: "auteur.personne", foreignField: "_id", as: "personne"}};
 
 articlesSchema.statics = {
     getArticles: async (title, category, limit, age, seasonal) => {
@@ -93,6 +94,7 @@ articlesSchema.statics = {
         let pipeline = [
             findPicture,
             findAuthor,
+            findPerson,
             {$match: {'titre': articleTitle}}
         ];
         return ApiService.get(Articles, pipeline)
